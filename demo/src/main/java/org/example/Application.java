@@ -3,6 +3,7 @@ package org.example;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 import java.util.List;
 
 public class Application {
@@ -28,6 +29,7 @@ public class Application {
         var getterMethod = subjectClass.getDeclaredMethod("getNumber");
         var setterMethod = subjectClass.getDeclaredMethod("setNumber", int.class);
 
+        Modifier.isPublic(emptyMethod.getModifiers());
         /**
          * Utwórz interfejs o nazwie IMethodFacade oraz jego implementację w postaci klasy SimpleMethod
          */
@@ -139,7 +141,7 @@ public class Application {
 //        return publicSetters
 //                .stream()
 //                .map(y -> y.GetUnderlyingMethod().getName())
-//                .toList().containsAll(List.of("setName","setNumber","setDone"))
+//                .toList().containsAll(List.of("setName","setNumber","setIsDone"))
 //                && publicSetters.size()==3;
 //    }
 
